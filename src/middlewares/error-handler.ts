@@ -16,8 +16,7 @@ export async function errorHandler(
     })
   }
 
-  // if (env.NODE_ENV !== 'production') console.error(err)
-  console.error(err)
+  if (env.NODE_ENV !== 'production') console.error(err)
 
   return res.status(500).json({
     message: 'Internal Server Error.',
