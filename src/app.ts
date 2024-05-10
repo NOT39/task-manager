@@ -8,7 +8,7 @@ import { errorHandler } from './middlewares/error-handler'
 export const app = express()
 
 const corsOptions = {
-  origin: 'http://localhost:5500',
+  origin: ['http://localhost:5500', 'http://localhost:5500'],
   credentials: true,
   optionsSuccessStatus: 200,
 }
