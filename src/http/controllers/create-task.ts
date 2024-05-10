@@ -24,8 +24,8 @@ export async function createTask(
       sessionId = randomUUID()
 
       res.cookie('sessionId', sessionId, {
-        maxAge: 1000 * 60 * 60 * 24 * 7, // 7 days
-        httpOnly: true,
+        // maxAge: 1000 * 60 * 60 * 24 * 7, // 7 days
+        // httpOnly: true,
       })
     }
 
