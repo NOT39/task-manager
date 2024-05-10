@@ -7,18 +7,13 @@ import { errorHandler } from './middlewares/error-handler'
 
 export const app = express()
 
-app.use(((req, res, next) => {
-  // res.header('Access-Control-Allow-Origin', req.headers.origin)
+const corsOptions = {
+  origin: 'http://localhost:5500',
+  credentials: true,
+  optionsSuccessStatus: 200,
+}
 
-  const corsOptions = {
-    origin: [req.headers.origin],
-    optionsSuccessStatus: 200,
-  }
-
-  app.use(cors(corsOptions))
-
-  next()
-}))
+app.use(cors(corsOptions))
 
 app.use(express.json())
 
