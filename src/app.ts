@@ -4,18 +4,16 @@ import cors from 'cors'
 
 import { tasks_routes } from './routes/tasks'
 import { errorHandler } from './middlewares/error-handler'
-import { setHeaders } from './middlewares/set-headers'
 
 export const app = express()
 
-// const corsOptions = {
-// origin: '*',
-// optionsSuccessStatus: 200,
-// }
+const corsOptions = {
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}
 
-// app.use(cors(corsOptions))
-
-app.use(setHeaders)
+app.use(cors(corsOptions))
 
 app.use(express.json())
 
