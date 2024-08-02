@@ -8,7 +8,8 @@ import { errorHandler } from './middlewares/error-handler'
 export const app = express()
 
 const corsOptions = {
-  origin: '*',
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  origin: (origin: any, callback: any) => callback(null, true),
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }
