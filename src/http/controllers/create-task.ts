@@ -18,7 +18,7 @@ export async function createTask(
   try {
     const { title, description } = createTaskBodySchema.parse(req.body)
 
-    let sessionId = req.cookies.sessionId
+    let { sessionId } = req.body
 
     if (!sessionId) {
       sessionId = randomUUID()

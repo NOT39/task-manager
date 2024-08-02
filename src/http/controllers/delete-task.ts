@@ -16,7 +16,7 @@ export async function deleteTask(
   try {
     const { taskId } = deleteTaskParamsSchema.parse(req.params)
 
-    const sessionId = req.cookies.sessionId
+    const { sessionId } = req.body
 
     const task = await tasksRepository.findById(taskId)
 

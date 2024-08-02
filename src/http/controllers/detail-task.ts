@@ -16,7 +16,7 @@ export async function detailTask(
   try {
     const { taskId } = datailTaskParamsSchema.parse(req.params)
 
-    const sessionId = req.cookies.sessionId
+    const { sessionId } = req.body
 
     const task = await tasksRepository.findById(taskId)
 

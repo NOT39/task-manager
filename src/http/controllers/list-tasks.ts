@@ -8,7 +8,7 @@ export async function listTasks(
 ) {
   const tasksRepository = new PrismaTasksRepository()
 
-  const sessionId = req.cookies.sessionId
+  const { sessionId } = req.body
 
   try {
     const tasks = await tasksRepository.listBySessionId(sessionId)

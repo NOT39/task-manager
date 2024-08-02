@@ -21,7 +21,8 @@ export async function editTask(
 
   try {
     const { taskId } = editTaskParamsSchema.parse(req.params)
-    const sessionId = req.cookies.sessionId
+
+    const { sessionId } = req.body
 
     const task = await tasksRepository.findById(taskId)
 

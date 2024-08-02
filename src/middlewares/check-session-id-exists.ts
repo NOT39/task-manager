@@ -5,7 +5,7 @@ export async function checkSessionIdExists(
   res: Response,
   next: NextFunction,
 ) {
-  const sessionId = req.cookies.sessionId
+  const { sessionId } = req.body
 
   if (!sessionId) {
     return res.status(401).json({ message: 'Unauthorized.' })
