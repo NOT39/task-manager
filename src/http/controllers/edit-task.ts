@@ -22,7 +22,7 @@ export async function editTask(
   try {
     const { taskId } = editTaskParamsSchema.parse(req.params)
 
-    const { sessionId } = req.body
+    const { sessionId } = req.query
 
     const task = await tasksRepository.findById(taskId)
 

@@ -18,7 +18,7 @@ export async function createTask(
   try {
     const { title, description } = createTaskBodySchema.parse(req.body)
 
-    let { sessionId } = req.body
+    let { sessionId } = req.query
 
     if (!sessionId) {
       sessionId = randomUUID()
@@ -35,7 +35,7 @@ export async function createTask(
       title,
       description,
       completed: false,
-      session_id: sessionId,
+      session_id: sessionId as string,
     }
 
     const task = await tasksRepository.create(taskData)

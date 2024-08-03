@@ -8,10 +8,10 @@ export async function listTasks(
 ) {
   const tasksRepository = new PrismaTasksRepository()
 
-  const { sessionId } = req.body
+  const { sessionId } = req.query
 
   try {
-    const tasks = await tasksRepository.listBySessionId(sessionId)
+    const tasks = await tasksRepository.listBySessionId(sessionId as string)
 
     return res.status(200).json(tasks)
   } catch (err) {

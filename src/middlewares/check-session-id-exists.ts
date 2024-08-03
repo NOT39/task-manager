@@ -5,7 +5,7 @@ export async function checkSessionIdExists(
   res: Response,
   next: NextFunction,
 ) {
-  const { sessionId } = req.body
+  const { sessionId } = req.query
 
   if (!sessionId) {
     return res.status(401).json({ message: 'Unauthorized.' })
